@@ -1,0 +1,17 @@
+[
+{
+"modid": "firescurrency",
+"name": "Fire's Currency",
+"description": "Simple currency mod for the official cauldron server",
+"version": "A[1.7.10",
+"credits": "Thanks to smbarbour for all his help !",
+"logoFile": "assets/firescurrency/textures/items/currency2.png",
+"mcversion": "1.7.10",
+"url": "",
+"updateUrl": "",
+"authorList": [ "Firestarme" ],
+"parent":"",
+"screenshots": ["assets/firescurrency/ss1.png"],
+"dependencies": []
+}
+]

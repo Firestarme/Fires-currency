@@ -1,0 +1,7 @@
+item.currency1.name=Cauldron $1
+item.currency2.name=Cauldron $2
+item.currency5.name=Cauldron $5
+item.currency10.name=Cauldron $10
+item.currency20.name=Cauldron $20
+item.currency50.name=Cauldron $50
+itemGroup.firescurrency=Fire's Currency
