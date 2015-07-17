@@ -1,12 +1,15 @@
 package com.firestarme.currency;
 
 
+import com.firestarme.currency.proxies.CommonProxy;
+import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -21,12 +24,14 @@ public class Main{
     public static final String name = "Fire's Currency";
     public static final String MODID = "firescurrency";
     public static final String Version = "A[1.7.10]";
+    public static final String CLIENT_PROXY_CLASS ="com.firestarme.currency.proxies.ClientProxy";
+    public static final String COMMON_PROXY_CLASS="com.firestarme.currency.proxies.CommonProxy";
 
 	@Mod.Instance("currency")
 	public static Main instance;
 	
-	//@SidedProxy(clientSide="firestarme.currency.client.ClientProxy", serverSide="firestarme.currency.CommonProxy")
-	//public static CommonProxy proxy;
+	@SidedProxy(clientSide=CLIENT_PROXY_CLASS, serverSide=COMMON_PROXY_CLASS)
+    public static CommonProxy proxy;
 
 	public static CItem I1;
 	public static CItem I2;
@@ -34,6 +39,9 @@ public class Main{
 	public static CItem I10;
 	public static CItem I20;
 	public static CItem I50;
+
+    public static Block cashpoint;
+
     public static CreativeTabs ctab;
     public static Boolean ccint;
 	
@@ -57,6 +65,7 @@ public class Main{
         I20 = new CItem("currency20");
         I50 = new CItem("currency50");
 
+        cashpoint = new BlockCashpoint("cashpoint");
 
 	}
 	
@@ -73,6 +82,8 @@ public class Main{
             I10.registerRender(ri);
             I20.registerRender(ri);
             I50.registerRender(ri);
+
+            ((BlockCashpoint)cashpoint).registerItemRenderer(ri);
 
         }
 
